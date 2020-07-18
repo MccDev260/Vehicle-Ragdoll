@@ -76,22 +76,27 @@ namespace VehicleRagdoll
                     {
                         player_vehicle.ApplyForceRelative(new Vector3(0f, forward_force, 0f));
                     }
+
                     if(e.KeyCode == reverse_key)
                     {
                         player_vehicle.ApplyForceRelative(new Vector3(0f, -reverse_force, 0f));
                     }
+
                     if(e.KeyCode == left_key)
                     {
                         player_vehicle.ApplyForceRelative(new Vector3(-left_force, 0f, 0f));
                     }
+
                     if(e.KeyCode == right_key)
                     {
                         player_vehicle.ApplyForceRelative(new Vector3(right_force, 0f, 0f));
                     }
+
                     if(e.KeyCode == up_key)
                     {
                         player_vehicle.ApplyForce(new Vector3(0f, 0f, up_force));
                     }
+
                     if(e.KeyCode == down_key)
                     {
                         player_vehicle.ApplyForce(new Vector3(0f, 0f, -down_force));

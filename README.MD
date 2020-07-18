@@ -1,5 +1,4 @@
-# Vehicle Ragdoll Mod by MccDev260 v1.0.1
-
+# Vehicle Ragdoll Mod by MccDev260 v1.1.0
 ## Description:
 GTA-V script built with Script Hook V Dot Net API which lets you launch any vehicle you're driving in whichever direction you want at insane speeds!
 
@@ -13,38 +12,8 @@ GTA-V script built with Script Hook V Dot Net API which lets you launch any vehi
 ---
 
 ## Installation:
-1. Navigate to your GTA V folder.
-2. Copy the VehicleRagdoll script into your scripts folder.
-
----
-
-## Known issues:
-
-- Failure to compile due to issues with GTA.UI.Notification.
-
-There are two fixes to this problem:
-### **Fix one:**
-Remove ScriptHookVDotNet2.dll from your game files.
-
-If this isn't appropriate for you because of other mods dependency on DotNet2, then the second fix below should work for you:
-
-### **Fix Two:**
-Change every occurrence of:
-
-        ...
-
-        GTA.UI.Notification.Show(//message);
-
-        ...
-
-to
-
-        ...
-
-        GTA.UI.Notify(//message);
-
-        ...
-
+1. Go to your GTA V folder.
+2. Copy both the VehicleRagdoll.dll and .ini file into your scripts folder.
 
 ---
 
@@ -65,58 +34,20 @@ to
 
 ---
 
-## Editing the script:
-*You can either edit the script directly using an editor (notepad++, Visual Studio Code etc) or you can clone the entire project repo from [here](https://github.com/MccDev260/Vehicle-Ragdoll) and open it in Visual Studio.*
+## Editing script settings:
 
-### Change the force applied to the vehicle:
-Find and edit the float variables below in the script to alter the force applied to the vehicle on the relevant axis. (Higher the number, the more force is applied)
+Use the .ini file to edit the keybindings and force applied to the vehicle!
 
-        . . .
-
-        // Set force for forward, back, left and right
-        float force_x_y = 100f;
-
-        // Set force for up and down
-        float force_z = 50f;
-
-        . . .
-
-### Editing the Keybindings:
-Find the switch statement near the bottom of the script:
-
-        . . .
-
-        switch (e.KeyCode)
-        {
-            // Forward
-            case Keys.NumPad8:
-                player_vehicle.ApplyForceRelative(new Vector3(0f, force_x_y, 0f));
-                break;
-            // Reverse
-            case Keys.NumPad2:
-                player_vehicle.ApplyForceRelative(new Vector3(0f, -force_x_y, 0f));
-                break;
-        . . .
-
-Choose the direction you would like to bind to a different key and edit it by changing the case expression to your desired key:
-
-        . . .
-
-        switch (e.KeyCode)
-        {
-            // Forward
-            case Keys.I:
-                player_vehicle.ApplyForceRelative(new Vector3(0f, force_x_y, 0f));
-                break;
-            // Reverse
-            case Keys.K:
-                player_vehicle.ApplyForceRelative(new Vector3(0f, -force_x_y, 0f));
-                break;
-        . . .
-
+*You can find the source code on my GitHub [here]()*
 
 ---
 
-## Licence:
+## Changelog:
 
+- v1.1.0: Added .ini, fixed failure to compile due to GTA.UI.Notification error, edited README to reflect changes.
+
+- v1.0.1: Added temporary fix in README for script not compiling for some people due to GTA.UI.Notification couldn't be found.
+
+---
+## Licence:
 Feel free to use and edit how ever you would like. If you publish anything using this script as a base or reference, please credit!
