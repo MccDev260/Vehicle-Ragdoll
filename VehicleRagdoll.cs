@@ -10,8 +10,11 @@ namespace VehicleRagdoll
     {
         private bool first_time = true;
         private bool mod_active = false;
+
         private float forward_force, reverse_force, left_force, right_force, up_force, down_force;
         private Keys forward_key, reverse_key, left_key, right_key, up_key, down_key, mod_toggle_key;
+
+        private Player player;
 
         public VehicleRagdoll()
         {
@@ -66,44 +69,38 @@ namespace VehicleRagdoll
                 }
             }
 
-            if (mod_active)
+            if (mod_active && Game.Player.Character.CurrentVehicle != null)
             {
-                try
+                Vehicle player_vehicle = Game.Player.Character.CurrentVehicle;
+
+                if (e.KeyCode == forward_key)
                 {
-                    Vehicle player_vehicle = Game.Player.Character.CurrentVehicle;
-
-                    if(e.KeyCode == forward_key)
-                    {
-                        player_vehicle.ApplyForceRelative(new Vector3(0f, forward_force, 0f));
-                    }
-
-                    if(e.KeyCode == reverse_key)
-                    {
-                        player_vehicle.ApplyForceRelative(new Vector3(0f, -reverse_force, 0f));
-                    }
-
-                    if(e.KeyCode == left_key)
-                    {
-                        player_vehicle.ApplyForceRelative(new Vector3(-left_force, 0f, 0f));
-                    }
-
-                    if(e.KeyCode == right_key)
-                    {
-                        player_vehicle.ApplyForceRelative(new Vector3(right_force, 0f, 0f));
-                    }
-
-                    if(e.KeyCode == up_key)
-                    {
-                        player_vehicle.ApplyForce(new Vector3(0f, 0f, up_force));
-                    }
-
-                    if(e.KeyCode == down_key)
-                    {
-                        player_vehicle.ApplyForce(new Vector3(0f, 0f, -down_force));
-                    }
+                    player_vehicle.ApplyForceRelative(new Vector3(0f, forward_force, 0f));
                 }
-                catch (NullReferenceException)
+
+                if (e.KeyCode == reverse_key)
                 {
+                    player_vehicle.ApplyForceRelative(new Vector3(0f, -reverse_force, 0f));
+                }
+
+                if (e.KeyCode == left_key)
+                {
+                    player_vehicle.ApplyForceRelative(new Vector3(-left_force, 0f, 0f));
+                }
+
+                if (e.KeyCode == right_key)
+                {
+                    player_vehicle.ApplyForceRelative(new Vector3(right_force, 0f, 0f));
+                }
+
+                if (e.KeyCode == up_key)
+                {
+                    player_vehicle.ApplyForce(new Vector3(0f, 0f, up_force));
+                }
+
+                if (e.KeyCode == down_key)
+                {
+                    player_vehicle.ApplyForce(new Vector3(0f, 0f, -down_force));
                 }
             }
         }
