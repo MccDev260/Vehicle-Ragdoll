@@ -14,8 +14,6 @@ namespace VehicleRagdoll
         private float forward_force, reverse_force, left_force, right_force, up_force, down_force;
         private Keys forward_key, reverse_key, left_key, right_key, up_key, down_key, mod_toggle_key;
 
-        private Player player;
-
         public VehicleRagdoll()
         {
             this.Tick += onTick;
